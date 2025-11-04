@@ -42,7 +42,7 @@ This script:
 
 * Randomly samples 100 GPQA questions
 * Sends each question twice (normal + role) to ChatGPT-4o
-* Saves outputs to `data/raw/gpqa_dual_results.json`
+* Saves outputs to `gpqa_dual_results.json`
 
 ### 4. Run statistical analysis
 
@@ -53,7 +53,7 @@ This script:
 * Verifies independence and normality assumptions
 * Runs McNemar’s exact test
 * Computes paired t- and Wilcoxon tests and effect sizes (Cohen’s h, d)
-* Exports cleaned and summarized results to `data/clean/analysis_results.csv`
+* Exports cleaned and summarized results to `analysis_results.csv`
 
 ## Key Findings
 
@@ -66,8 +66,8 @@ This script:
 
 ## Data
 
-* **Raw data:** Model responses stored in `data/raw/gpqa_dual_results.json`
-* **Cleaned data:** Processed results and statistical outputs in `data/clean/analysis_results.csv`
+* **Raw data:** Model responses stored in `gpqa_dual_results.json`
+* **Cleaned data:** Processed results and statistical outputs in `analysis_results.csv`
 * GPQA content is licensed; only derived metrics (not full questions) are included.
 
 ## Collaboration and Version Control
