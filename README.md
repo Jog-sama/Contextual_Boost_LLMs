@@ -29,12 +29,12 @@ Additional checks: Wilcoxon and paired t-tests for effect size estimation
 Prepare API key
 Create a .env file:
 
-OPENAI_API_KEY=your_key_here
+``` OPENAI_API_KEY=your_key_here ```
 
 
 Run data collection
 
-python experiment.py
+``` python experiment.py ```
 
 
 Randomly samples 100 GPQA questions
@@ -45,7 +45,7 @@ Saves outputs to gpqa_dual_results.json
 
 Run statistical analysis
 
-python experiment-analysis.py
+``` python experiment-analysis.py ```
 
 This script:
 
