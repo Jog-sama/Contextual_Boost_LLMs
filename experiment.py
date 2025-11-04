@@ -18,7 +18,7 @@ RANDOM_SEED = 42            # for reproducibility
 with open("GPQA_Diamond_role_prompts_pretty.json", "r", encoding="utf-8") as f:
     dataset = json.load(f)
 
-
+# sampling
 random.seed(RANDOM_SEED)
 sample = random.sample(dataset, SAMPLE_SIZE)
 def get_model_answer(prompt, prompt_type):
@@ -33,7 +33,7 @@ def get_model_answer(prompt, prompt_type):
     answer = match.group(1).upper() if match else "?"
     return raw_output, answer
 
-
+# running the experiment and collecting results 
 results = []
 
 for idx, item in enumerate(sample, 1):
@@ -76,6 +76,7 @@ for idx, item in enumerate(sample, 1):
     })
 
 import json
+# saving results to json after pretty printing nd preprocessing to get domain specific fields
 
 with open("gpqa_dual_results.json", "w", encoding="utf-8") as f:
     json.dump(results, f, ensure_ascii=False, indent=2)
