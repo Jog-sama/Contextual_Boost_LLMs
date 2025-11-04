@@ -1,4 +1,5 @@
 # Contextual_Boost_LLMs
+
 A statistical framework for testing how role-conditioning influences LLM reasoning, accuracy, and cognitive behavior
 
 ## Overview
@@ -8,61 +9,68 @@ We test this hypothesis using ChatGPT-4o on 100 graduate-level multiple-choice q
 
 Each question was asked twice:
 
-No-Role: Standard prompt
-
-Role: Prompt with an assigned expert identity
+* **No-Role:** Standard prompt
+* **Role:** Prompt with an assigned expert identity
 
 ## Method Summary
 
-Design: Paired (within-question) comparison
-
-Independent variable: Prompt type (Role vs. No-Role)
-
-Dependent variable: Binary correctness of model output
-
-Main test: McNemar’s exact test (paired binary)
-
-Additional checks: Wilcoxon and paired t-tests for effect size estimation
+* **Design:** Paired (within-question) comparison
+* **Independent variable:** Prompt type (Role vs. No-Role)
+* **Dependent variable:** Binary correctness of model output
+* **Main test:** McNemar’s exact test (paired binary)
+* **Additional checks:** Wilcoxon and paired t-tests for effect-size estimation
 
 ## How to Reproduce
 
-Prepare API key
-Create a .env file:
+### 1. Setup
 
-``` OPENAI_API_KEY=your_key_here ```
+Create a `.env` file containing your OpenAI key:
 
+`OPENAI_API_KEY=your_key_here`
 
-Run data collection
+### 2. Install dependencies
 
-``` python experiment.py ```
+`pip install -r requirements.txt`
 
+**Required libraries:** openai, pandas, numpy, scipy, dotenv, json
 
-Randomly samples 100 GPQA questions
+### 3. Run data collection
 
-Sends each question twice (normal + role) to ChatGPT-4o
-
-Saves outputs to gpqa_dual_results.json
-
-Run statistical analysis
-
-``` python experiment-analysis.py ```
+`python experiment.py`
 
 This script:
 
-Verifies independence and normality assumptions
+* Randomly samples 100 GPQA questions
+* Sends each question twice (normal + role) to ChatGPT-4o
+* Saves outputs to `gpqa_dual_results.json`
 
-Runs McNemar’s exact test
+### 4. Run statistical analysis
 
-Computes paired t- and Wilcoxon tests, effect sizes (Cohen’s h, d)
+`python experiment-analysis.py`
+
+This script:
+
+* Verifies independence and normality assumptions
+* Runs McNemar’s exact test
+* Computes paired t- and Wilcoxon tests and effect sizes (Cohen’s h, d)
+* Exports cleaned and summarized results to `analysis_results.csv`
 
 ## Key Findings
 
-Overall accuracy: No-Role = 44 %, Role = 47 % (Δ = +3 %, p = 0.65)
+* **Overall accuracy:** No-Role = 44 %, Role = 47 % (Δ = +3 %, p = 0.65)
+* **Domain trends:**
 
-Domain trends:
+  * Physics / Astrophysics → slight improvement
+  * Chemistry / Organic Chemistry → slight decline
+* **Conclusion:** Role prompts alter tone and reasoning style more than factual correctness.
 
-Physics / Astrophysics → slight improvement
+## Data
 
-Chemistry / Organic Chemistry → decline
+* **Raw data:** Model responses stored in `gpqa_dual_results.json`
+* **Cleaned data:** Processed results and statistical outputs in `analysis_results.csv`
+* GPQA content is licensed; only derived metrics (not full questions) are included.
 
-Conclusion: Role prompts change tone and reasoning style, not factual correctness.
+## Collaboration and Version Control
+
+Each contributor worked on a dedicated branch (`data-collection`, `analysis`, `reporting`), submitting at least one pull request to `main`.
+All PRs underwent peer review before merging, following best practices for collaborative Git workflows.
