@@ -1,0 +1,12 @@
+overall_accuracy.png
+Overall percent correct under No-Role and Role prompts (n = 100). Error bars show approximate 95% confidence intervals.
+
+domain_breakdown.png
+Accuracy (%) by subject area (e.g., Physics, Astrophysics, Chemistry, Organic Chemistry) for No-Role and Role prompts. Domains sorted by mean accuracy.
+
+mcnemar_matrix.png
+Contingency table showing counts of paired outcomes: a = both correct, b = role-only correct, c = no-role-only correct, d = both wrong. McNemar focuses on the discordant cells (b and c).
+
+diff_histogram.png
+Counts of per-question outcome changes (−1 = role made it worse, 0 = no change, +1 = role made it better).
+
