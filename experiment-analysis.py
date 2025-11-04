@@ -18,7 +18,7 @@ if 'is_correct' not in df.columns:
 pivot = df.pivot(index='id', columns='prompt_type', values='is_correct').dropna()
 pivot.columns = [c.lower() for c in pivot.columns]
 
-# Independence 
+# Independence test
 
 n_unique_ids = pivot.index.nunique()
 n_total = len(pivot)
@@ -120,3 +120,5 @@ summary = {
     'cohens_h':h, 'cohens_d':cohens_d
 }
 print(summary)
+
+## Citation: ChatGPT was used at 1:30pm on Nov 2,2025 in the generation of mcnemar's metrics, Contingency table , Wilcoxon W , Paired t-statictics and Cohen's h , Cohen's d. 

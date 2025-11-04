@@ -123,3 +123,5 @@ for qid in sorted(by_id):
     lines.append("\n")
 
 Path("gpqa_readable_grouped.md").write_text("\n".join(lines), encoding="utf-8")
+
+#Citation: NO AI has been used for the generation of the above code
